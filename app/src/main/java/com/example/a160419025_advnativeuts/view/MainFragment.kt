@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a160419025_advnativeuts.R
 import com.example.a160419025_advnativeuts.model.Recipe
@@ -35,6 +36,11 @@ class MainFragment : Fragment() {
         recView.adapter = recipeListAdapter
 
         observeViewModel()
+
+        fabAddRecipe.setOnClickListener {
+            val action = MainFragmentDirections.actionAddRecipeFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
     }
 
     fun observeViewModel() {

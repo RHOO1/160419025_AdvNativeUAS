@@ -36,7 +36,7 @@ class RecipeListAdapter (val recipeList: ArrayList<Recipe>) : RecyclerView.Adapt
         Picasso.get().load(url).into(holder.view.imgListThumbnail)
 
         holder.view.btnListReadMore.setOnClickListener {
-            val action = MainFragmentDirections.actionDetailFragment(recipeList[position].id!!)
+            val action = MainFragmentDirections.actionDetailFragment(recipeList[position].thumbnail!!, recipeList[position].name!!, recipeList[position].publishedby!!, recipeList[position].recipe!!)
             Navigation.findNavController(it).navigate(action)
         }
     }
