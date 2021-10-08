@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a160419025_advnativeuts.R
 import com.example.a160419025_advnativeuts.model.Recipe
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.recipe_list_item.view.*
 import java.util.*
 
@@ -28,10 +29,14 @@ class RecipeListAdapter (val recipeList: ArrayList<Recipe>) : RecyclerView.Adapt
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
         holder.view.txtListFoodName.text = recipeList[position].name
-        holder.view.txtListFoodDescription.text = recipeList[position].description
+        holder.view.txtListFoodPublishedBy.text = "Published By " + recipeList[position].publishedby
+
+        var url = recipeList[position].thumbnail
+
+        Picasso.get().load(url).into(holder.view.imgListThumbnail)
 
         holder.view.btnListReadMore.setOnClickListener {
-            val action = MainFragmentDirections.actionDetailFragment()
+            val action = MainFragmentDirections.actionDetailFragment(recipeList[position].id!!)
             Navigation.findNavController(it).navigate(action)
         }
     }

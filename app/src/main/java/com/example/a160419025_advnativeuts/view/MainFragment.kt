@@ -15,11 +15,7 @@ import java.util.*
 
 class MainFragment : Fragment() {
     private lateinit var viewModel: ListViewModel
-    private val recipeListAdapter = RecipeListAdapter(ArrayList())
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private val recipeListAdapter = RecipeListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

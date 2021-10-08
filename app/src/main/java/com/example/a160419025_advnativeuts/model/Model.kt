@@ -7,9 +7,9 @@ data class User (
 )
 
 data class Recipe (
-    val id: String?,
+    val id: Int?,
     val name: String?,
-    val description: String?,
     val recipe: String?,
-    val thumbnail: String?
+    val thumbnail: String?,
+    val publishedby: String?
 )
