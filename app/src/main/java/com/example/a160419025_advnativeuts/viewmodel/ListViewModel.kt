@@ -2,15 +2,17 @@ package com.example.a160419025_advnativeuts.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.android.volley.RequestQueue
 import com.example.a160419025_advnativeuts.model.Recipe
 import java.util.*
 
 class ListViewModel: ViewModel() {
     val recipeLD = MutableLiveData<List<Recipe>>()
+    val TAG = "volleyTag"
+    private var queue: RequestQueue ?= null
 
     fun refresh () {
         val recipe1 = Recipe(
-            1,
             "Rice Bowl Sei Sapi Sambal Matah (Khas NTT)",
             "Bahan Se'i Sapi\n" +
                     "200 gr daging sapi Has dlm\n" +
@@ -52,7 +54,6 @@ class ListViewModel: ViewModel() {
             "Artem Danylo"
         )
         val recipe2 = Recipe(
-            2,
             "Rice Bowl Chicken Curry and Cheese / Nasi Ayam Kari Keju",
             "250 g daging ayam kampung\n" +
                     "125 ml santan\n" +
@@ -81,7 +82,6 @@ class ListViewModel: ViewModel() {
         )
 
         val recipe3 = Recipe(
-            3,
             "Kue lapis ombre-kue lapis kekinian-lapis pepe",
             "Bahan-bahan\n" +
                     "1000 ml air bersih\n" +

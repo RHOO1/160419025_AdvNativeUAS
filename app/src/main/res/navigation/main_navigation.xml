@@ -23,21 +23,23 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
-            android:name="thumbnail"
-            app:argType="string" />
-        <argument
-            android:name="foodName"
-            app:argType="string" />
-        <argument
-            android:name="publishedBy"
-            app:argType="string" />
-        <argument
-            android:name="recipeDetail"
-            app:argType="string" />
+            android:name="uuid"
+            app:argType="integer" />
+        <action
+            android:id="@+id/actionEditRecipeFragment"
+            app:destination="@id/editRecipeFragment" />
     </fragment>
     <fragment
         android:id="@+id/addRecipeFragment"
         android:name="com.example.a160419025_advnativeuts.view.AddRecipeFragment"
         android:label="fragment_add_recipe"
         tools:layout="@layout/fragment_add_recipe" />
+    <fragment
+        android:id="@+id/editRecipeFragment"
+        android:name="com.example.a160419025_advnativeuts.view.EditRecipeFragment"
+        android:label="EditRecipeFragment" >
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
+    </fragment>
 </navigation>
